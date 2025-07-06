@@ -1,0 +1,33 @@
+#form{
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    gap: 1px;
+}
+
+#actions{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#saved{
+    display: none;
+}
+
+#saved.show{
+    display: inline;
+}
+
+main{
+    border-radius: 10px;
+    background-color: green;
+}
+
+body{
+    border-radius: 10px;
+}
+
+html{
+    border-radius: 10px;
+}

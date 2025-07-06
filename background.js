@@ -3,13 +3,18 @@ let timer = null;
 async function checkTabs() {
     console.log("looking for things");
     const { enabled, interval } = await chrome.storage.local.get(["enabled", "interval"]);
+    console.log("storage values:", enabled, interval);
     if (!enabled) return;
 
     const tabs = await chrome.tabs.query({ url: "*://www.boligportal.dk/*" });
     for (const tab of tabs) {
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
-            files: ["content.js"]
+            files: ["content.js"],
+            func: () => {
+                console.log("reloading pages-");
+                window.location.reload();
+            }
         });
     }
 

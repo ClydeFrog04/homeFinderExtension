@@ -3,17 +3,25 @@
 <html>
 <head>
     <title>Bolig Portal Watcher</title>
+    <link rel="stylesheet" href="popup.css"/>
 </head>
 <body>
+<main>
 <h3>Bolig Watcher</h3>
-<label>
-    <input type="checkbox" id="enabledToggle"/> Enable Monitoring!
-</label> <br/>
-<label>
-    Refresh Interval (seconds):
-    <input type="number" id="intervalInput" min="10" value="60"/>
-</label> <br/>
-<button id="saveSettings">Save</button>
+    <section id="form">
+        <label>
+            <input type="checkbox" id="enabledToggle"/> Enable Monitoring!
+        </label> <br/>
+        <label>
+            Refresh Interval (seconds):
+            <input type="number" id="intervalInput" min="10" value="60"/>
+        </label> <br/>
+        <section id="actions">
+            <button id="saveSettings">Save</button>
+            <span id="saved">yoooooo DANI! This shit be SAVED!!</span>
+        </section>
+    </section>
 <script src="popup.js"></script>
+</main>
 </body>
 </html>
