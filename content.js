@@ -42,11 +42,11 @@
     const seenListings = stored.seenListings || [];
 
     const newListings = currentListings.filter(url => !seenListings.includes(url));
-    console.log(`Found ${newListings.length} total listings`);
+    console.log(`Found ${newListings.length} new listings`);
 
     if (newListings.length > 0) {
         console.log("New listings:", newListings);
         await chrome.storage.local.set({seenListings: [...seenListings, ...newListings]});
-        chrome.runtime.sendMessage({type: "new_listings", count: newListings.length});
+        chrome.runtime.sendMessage({type: "new_listings", count: newListings.length, firstListing: newListings[0]});
     }
 })();

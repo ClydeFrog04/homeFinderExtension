@@ -48,11 +48,12 @@ chrome.runtime.onMessage.addListener((message) => {
         //     title: "New Homes Found!",
         //     message: `${message.count} new listings found on BoligPortal.`
         // });
-        chrome.notifications.create("new_listings", {
+        chrome.notifications.create(`listing-${Date.now()}`, {
             type: "basic",
             iconUrl: "icons/icon128.png",
             title: "New Homes Found!",
-            message: `${message.count} new listings found on BoligPortal.`
+            message: `${message.count} new listings found on BoligPortal.\n${message.firstListing}`,
+            requireInteraction: true
         });
     }
 
@@ -60,7 +61,7 @@ chrome.runtime.onMessage.addListener((message) => {
 });
 
 chrome.notifications.onClicked.addListener((notificationId) => {
-    if (notificationId === "new_listings") {
+    if (notificationId.startsWith("listing-"))  {
         chrome.tabs.query({ url: "*://www.boligportal.dk/*" }, (tabs) => {
             if (tabs.length > 0) {
                 // Focus the first matching tab
