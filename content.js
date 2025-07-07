@@ -42,6 +42,7 @@
     const seenListings = stored.seenListings || [];
 
     const newListings = currentListings.filter(url => !seenListings.includes(url));
+    console.log(`Found ${newListings.length} total listings`);
 
     if (newListings.length > 0) {
         console.log("New listings:", newListings);
