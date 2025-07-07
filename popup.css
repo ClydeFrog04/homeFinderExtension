@@ -20,14 +20,26 @@
 }
 
 main{
-    border-radius: 10px;
-    background-color: green;
+    /*background-color: #75ba75;*/
+    /*padding: 1rem;*/
+    /*overflow: hidden;*/
+    border-radius: 12px;
+    background: #b1f5b1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 1rem;
+    min-width: 240px;
 }
 
-body{
-    border-radius: 10px;
-}
+/*body{*/
+/*    border-radius: 10px;*/
+/*}*/
 
-html{
-    border-radius: 10px;
+/*html{*/
+/*    border-radius: 10px;*/
+/*}*/
+
+body {
+    margin: 0;
+    padding: 4px;
+    background: #be95be;
 }

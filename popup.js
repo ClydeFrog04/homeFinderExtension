@@ -1,6 +1,6 @@
 //todo: can be renamed to menu.js probably
 const savedSpan = document.querySelector("#saved");
-
+document.getElementById("title").innerHTML = "Bolig Watcher &#128065;&#65039;_&#128065;&#65039;";
 document.addEventListener("DOMContentLoaded", () => {
     const enabledToggle = document.getElementById("enabledToggle");
     const intervalInput = document.getElementById("intervalInput");

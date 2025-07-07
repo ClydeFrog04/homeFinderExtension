@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BoligPortal Watcher",
-  "version": "1.0",
+  "version": "0.2",
   "description": "Watches BoligPortal for new home listings.",
   "permissions": [
     "storage",

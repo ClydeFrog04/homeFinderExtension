@@ -36,7 +36,13 @@ chrome.storage.onChanged.addListener((changes) => {
 chrome.runtime.onMessage.addListener((message) => {
     console.log("message received");
     if (message.type === "new_listings") {
-        chrome.notifications.create({
+        // chrome.notifications.create({
+        //     type: "basic",
+        //     iconUrl: "icons/icon128.png",
+        //     title: "New Homes Found!",
+        //     message: `${message.count} new listings found on BoligPortal.`
+        // });
+        chrome.notifications.create("new_listings", {
             type: "basic",
             iconUrl: "icons/icon128.png",
             title: "New Homes Found!",
@@ -45,6 +51,21 @@ chrome.runtime.onMessage.addListener((message) => {
     }
 
     return true;
+});
+
+chrome.notifications.onClicked.addListener((notificationId) => {
+    if (notificationId === "new_listings") {
+        chrome.tabs.query({ url: "*://www.boligportal.dk/*" }, (tabs) => {
+            if (tabs.length > 0) {
+                // Focus the first matching tab
+                chrome.tabs.update(tabs[0].id, { active: true });
+                chrome.windows.update(tabs[0].windowId, { focused: true });
+            } else {
+                // No tab open — open a new one
+                chrome.tabs.create({ url: "https://www.boligportal.dk/en/" });
+            }
+        });
+    }
 });
 
 /*
