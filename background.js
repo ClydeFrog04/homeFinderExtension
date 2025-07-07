@@ -1,14 +1,20 @@
 let timer = null;
 
+const isHomePage = (url) => {
+    const isHome = url === "https://www.boligportal.dk/" || url === "https://www.boligportal.dk/en/";
+    console.log("isHome:", isHome, url);
+    return isHome;
+};
+
 async function checkTabs() {
     console.log("looking for things");
     const { enabled, interval } = await chrome.storage.local.get(["enabled", "interval"]);
-    console.log("storage values:", enabled, interval);
     if (!enabled) return;
 
     const tabs = await chrome.tabs.query({ url: "*://www.boligportal.dk/*" });
     for (const tab of tabs) {
-        // Reload the tab
+        if (isHomePage(tab.url)) continue;
+        //refresh the tab
         chrome.tabs.reload(tab.id, () => {
             // Inject script *after* reload completes
             chrome.scripting.executeScript({
