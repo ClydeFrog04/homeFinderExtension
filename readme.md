@@ -6,7 +6,11 @@ This extension is for google chrome only.
 1. remove previously installed version if one exists
 1. navigate to the [releases tab](https://github.com/ClydeFrog04/homeFinderExtension/releases) and download the zip file for the latest release (currently 0.2)
 1. move the file to a desired location, if desired, and unzip the contents
-1. [open chrome extensions](chrome://extensions/)
+1. open the chrome extensions page in a new tab, paste this in a new tab to get there:
+
+```
+chrome://extensions/
+```
 1. ensure "developer mode" is turned on in top right corner, then click "Load unpacked" and find the unzipped directory from step 2
 1. if the extension installs turned off make sure to toggle it on via the toggle in the bottom right corner:
    ![image](https://github.com/user-attachments/assets/3a5d6f48-eb88-4f3e-aba6-296a0907689b)
