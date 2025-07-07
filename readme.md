@@ -3,7 +3,7 @@
 This extension is for google chrome only.
 
 ## How to install
-1. remove previously installed version
+1. remove previously installed version if one exists
 1. navigate to the [releases tab](https://github.com/ClydeFrog04/homeFinderExtension/releases) and download the zip file for the latest release (currently 0.2)
 1. move the file to a desired location, if desired, and unzip the contents
 1. [open chrome extensions](chrome://extensions/)
