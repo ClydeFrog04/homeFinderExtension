@@ -8,13 +8,13 @@ async function checkTabs() {
 
     const tabs = await chrome.tabs.query({ url: "*://www.boligportal.dk/*" });
     for (const tab of tabs) {
-        chrome.scripting.executeScript({
-            target: { tabId: tab.id },
-            files: ["content.js"],
-            func: () => {
-                console.log("reloading pages-");
-                window.location.reload();
-            }
+        // Reload the tab
+        chrome.tabs.reload(tab.id, () => {
+            // Inject script *after* reload completes
+            chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                files: ["content.js"]
+            });
         });
     }
 
